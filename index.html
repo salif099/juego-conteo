@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego de Métodos de Conteo</title>
+    <!-- Vinculamos el archivo CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Añadimos una tipografía de Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Pacifico&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Juego de Métodos de Conteo</h1>
+
+        <div id="intro">
+            <p>Los <strong>métodos de conteo</strong> son fundamentales para resolver problemas que implican calcular la cantidad de maneras en que se puede realizar un evento. En este juego, aprenderás a aplicar el <span class="highlight">principio de suma</span>, el <span class="highlight">principio de multiplicación</span> y los <span class="highlight">diagramas de árbol</span> en situaciones de la vida cotidiana y problemas matemáticos.</p>
+            <p> 1.<span class="resalte">Principio de Suma</span>
+                El principio de suma se usa cuando existen varias formas diferentes de realizar una tarea, pero solo se puede elegir una de ellas. Si tienes varias opciones que no se pueden realizar simultáneamente, la cantidad total de formas de realizar una tarea es la suma de las formas de cada opción.
+                <br>
+                Ejemplo: 
+                Si puedes elegir entre 3 camisetas rojas o 4 camisetas azules para vestirte, el número total de opciones es:
+                3 + 4 = 7
+                Es decir, tienes 7 opciones de camisetas.
+                <br>
+                <br>
+                2.<span class="resalte">Principio de Multiplicación</span>
+                El principio de multiplicación se utiliza cuando una tarea se puede descomponer en una serie de subtareas que se realizan una después de la otra, y para completar la tarea general, necesitas realizar cada una de las subtareas. La cantidad total de formas de completar la tarea es el producto de las maneras en que se pueden realizar las subtareas.
+                <br>
+                Ejemplo: 
+                Si tienes 3 opciones de pantalones y 4 opciones de camisetas, el número total de combinaciones (pantalones y camisetas) que puedes usar es:
+                3 x 4 = 12
+                Esto significa que hay 12 combinaciones posibles de pantalones y camisetas.
+                <br>
+                <br>
+                3.<span class="resalte">Diagramas de Árbol</span>
+                Los diagramas de árbol son una herramienta visual que permite organizar y resolver problemas de conteo, especialmente aquellos que involucran múltiples pasos o decisiones. Cada "rama" del árbol representa una posible elección, y al seguir las ramas, puedes contar las diferentes combinaciones o resultados posibles.
+                <br>
+                Ejemplo: 
+                Supongamos que tienes que elegir primero entre 2 tipos de zapatos (negros o blancos) y luego entre 3 tipos de sombreros (rojo, verde o azul). Puedes crear un diagrama de árbol donde cada rama inicial represente una opción de zapatos, y desde cada una de esas ramas salgan 3 ramas para las opciones de sombreros. Así puedes visualizar que hay:
+                2 x 3 = 6
+                posibles combinaciones de zapatos y sombreros.
+                <br>
+                <br>
+                Este enfoque es esencial para resolver problemas de combinatoria y probabilidad.</p>
+            
+            <button onclick="startGame()">¡Empezar el juego!</button>
+        </div>
+
+        <div id="game" style="display:none;">
+            <!-- Preguntas del juego -->
+            <div class="question">
+                <p><strong>Pregunta 1:</strong> Tienes 3 camisetas y 2 pantalones. ¿Cuántos conjuntos distintos puedes formar si escoges una camiseta y un pantalón? (Principio de multiplicación)</p>
+                <input type="number" id="q1" placeholder="Escribe tu respuesta aquí">
+            </div>
+            <div class="question">
+                <p><strong>Pregunta 2:</strong> En una tienda venden 4 tipos de pasteles y 3 tipos de galletas. Si decides comprar solo uno de los dos, ¿cuántas opciones distintas tienes para elegir? (Principio de suma)</p>
+                <input type="number" id="q2" placeholder="Escribe tu respuesta aquí">
+            </div>
+            <div class="question">
+                <p><strong>Pregunta 3:</strong> Hay 4 caminos para ir al parque y 3 caminos para regresar. ¿Cuántas maneras diferentes hay de ir y regresar del parque? (Principio de multiplicación)</p>
+                <input type="number" id="q3" placeholder="Escribe tu respuesta aquí">
+            </div>
+            <div class="question">
+                <p><strong>Pregunta 4:</strong> Si tienes la opción de elegir entre 5 sabores de helado o 3 sabores de jugo, ¿cuántas formas diferentes tienes de elegir solo uno de los dos? (Principio de suma)</p>
+                <input type="number" id="q4" placeholder="Escribe tu respuesta aquí">
+            </div>
+            <div class="question">
+                <p><strong>Pregunta 5:</strong> Un restaurante ofrece 2 opciones de entrada, 3 opciones de plato principal y 2 opciones de postre. ¿Cuántas combinaciones distintas de comida se pueden pedir? (Principio de multiplicación)</p>
+                <input type="number" id="q5" placeholder="Escribe tu respuesta aquí">
+            </div>
+            <div class="question">
+                <p><strong>Pregunta 6:</strong> Un árbol genealógico tiene 3 generaciones, y cada persona tiene 2 hijos. ¿Cuántas personas hay en la tercera generación? (Diagrama de árbol)</p>
+                <input type="number" id="q6" placeholder="Escribe tu respuesta aquí">
+            </div>
+            <div class="question">
+                <p><strong>Pregunta 7:</strong> En una biblioteca hay 4 libros de matemáticas y 6 libros de literatura. ¿Cuántas formas tienes de elegir un libro de matemáticas o uno de literatura? (Principio de suma)</p>
+                <input type="number" id="q7" placeholder="Escribe tu respuesta aquí">
+            </div>
+            <div class="question">
+                <p><strong>Pregunta 8:</strong> Si tienes 2 opciones de camiseta, 3 opciones de pantalones y 4 opciones de zapatos, ¿cuántos conjuntos completos puedes armar? (Principio de multiplicación)</p>
+                <input type="number" id="q8" placeholder="Escribe tu respuesta aquí">
+            </div>
+            <div class="question">
+                <p><strong>Pregunta 9:</strong> En una fiesta, hay 3 tipos de bebidas y 5 tipos de snacks. Si solo puedes elegir una bebida y un snack, ¿cuántas combinaciones puedes hacer? (Principio de multiplicación)</p>
+                <input type="number" id="q9" placeholder="Escribe tu respuesta aquí">
+            </div>
+            <div class="question">
+                <p><strong>Pregunta 10:</strong> Si hay 6 maneras de llegar a un centro comercial y 4 maneras de regresar, ¿cuántas formas diferentes hay de hacer el viaje de ida y vuelta? (Principio de multiplicación)</p>
+                <input type="number" id="q10" placeholder="Escribe tu respuesta aquí">
+            </div>
+            <div class="question">
+                <p><strong>Pregunta 11:</strong> Un restaurante tiene 4 opciones de ensaladas y 5 opciones de sopas. ¿Cuántas formas tienes de elegir una ensalada o una sopa? (Principio de suma)</p>
+                <input type="number" id="q11" placeholder="Escribe tu respuesta aquí">
+            </div>
+            <div class="question">
+                <p><strong>Pregunta 12:</strong> En una tienda hay 3 modelos de teléfono en 4 colores distintos. ¿Cuántas combinaciones diferentes de teléfono y color puedes elegir? (Principio de multiplicación)</p>
+                <input type="number" id="q12" placeholder="Escribe tu respuesta aquí">
+            </div>
+
+            <button class="submit-btn" onclick="checkAnswers()">Enviar respuestas</button>
+            <div class="result" id="result"></div>
+        </div>
+
+    </div>
+
+    <!-- Vinculamos el archivo JavaScript -->
+    <script src="script.js"></script>
+
+</body>
+</html>
